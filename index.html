@@ -24,7 +24,27 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+       <style type="text/css">
+	 html { height: 100% }
+	 body { height: 100%; margin: 0; padding: 0 }
+	 #map-canvas { height: 100% }
+       </style>
+       <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYb0ENqGirs7oju9w1F8bVVfmdd7EP_ug&sensor=false">
+       </script>
+       <script type="text/javascript">
+	 function initialize() {
+        var mapOptions = {
+		center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8
+        };
+	var map = new google.maps.Map(document.getElementById("map-canvas"),
+	mapOptions);
+	}
+      google.maps.event.addDomListener(window, 'load', initialize);
+      </script>
+	  
+	 <title>Hello World</title>
     </head>
     <body>
         <div class="app">
@@ -34,6 +54,7 @@
                 <p class="event received">Device is Ready</p>
             </div>
         </div>
+	<div id="map-canvas"/>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
