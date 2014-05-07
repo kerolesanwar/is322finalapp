@@ -29,7 +29,7 @@ var map;
   // Setup the click event listeners: simply set the map to
   // Chicago
   google.maps.event.addDomListener(controlUI, 'click', function() {
-	alert('test');
+	capturePhoto();
   });
 
 }
@@ -64,7 +64,7 @@ function PhotoLibraryControl(controlDiv, map) {
   // Setup the click event listeners: simply set the map to
   // Chicago
   google.maps.event.addDomListener(controlUI, 'click', function() {
-	alert('test');
+	getPhoto(pictureSource.PHOTOLIBRARY);
   });
 
 }
@@ -150,6 +150,14 @@ function onDeviceReady() {
       
     }
     
+     // Called when a photo is successfully retrieved
+    //
+    function onPhotoURISuccess(imageURI) {
+      // Uncomment to view the image file URI 
+      ///alert(imageURI);
+    }
+    
+    
     function onFail(message) {
       alert('Failed because: ' + message);
     }
@@ -158,4 +166,11 @@ function onDeviceReady() {
       // Take picture using device camera and retrieve image as base64-encoded string
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
+    }
+    
+      function getPhoto(source) {
+      // Retrieve image file location from specified source
+      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+        destinationType: destinationType.FILE_URI,
+        sourceType: source });
     }
