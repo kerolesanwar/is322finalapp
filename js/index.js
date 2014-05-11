@@ -158,7 +158,7 @@ function onDeviceReady() {
   	  var fLong = (long[0] + long[1]/60 + long[2]/3600) * (longRef == "W" ? -1 : 1);
   				
   	  marker = new GMarker (new GLatLng(fLat, fLong));
-  	  marker.setMap(map);;
+  	  marker.setMap(map);
     }
     
      // Called when a photo is successfully retrieved
