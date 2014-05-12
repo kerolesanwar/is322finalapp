@@ -80,11 +80,12 @@ function PhotoLibraryControl(controlDiv, map) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-	 var userLoc = new google.maps.Marker({
-        map: map,
-        position: pos,
-        content: 'Your Location'
-      });
+      	var infowindow = new google.maps.InfoWindow({
+		map: map,
+		position: pos, 
+		content: "Current Location" 
+	
+	});
 
 	map.setCenter(pos);
     }, function() {
@@ -147,16 +148,6 @@ function onDeviceReady() {
       // Uncomment to view the base64 encoded image data
       //alert(imageData);
       
-      photo = new Image();
-      photo.src = "data:image/jpeg;base64," + imageData;
-      var lat = EXIF.getTag(photo, "GPSLatitude");  
-      var long = EXIF.getTag(photo, "GPSLongitude"); 
-      var  latRef = EXIF.getTag(photo, "GPSLatitudeRef");
-      var longRef = EXIF.getTag(photo, "GPSLongitudeRef");
-  	  //alert("Latitude:" + lat + latRef + " Longitude: " + long + longRef);
-  	  var fLat = (lat[0] + lat[1]/60 + lat[2]/3600) * (latRef == "N" ? 1 : -1);
-  	  var fLong = (long[0] + long[1]/60 + long[2]/3600) * (longRef == "W" ? -1 : 1);
-  	
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);				
     }
     
