@@ -70,7 +70,7 @@ function PhotoLibraryControl(controlDiv, map) {
 }
 	  function initialize() {
 	    var mapOptions = {
-		 zoom: 6
+		 zoom: 12
 	};
 	 map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
@@ -80,10 +80,10 @@ function PhotoLibraryControl(controlDiv, map) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-	 var infowindow = new google.maps.InfoWindow({
+	 var userLoc = new google.maps.Marker({
         map: map,
         position: pos,
-        content: 'Location found using HTML5.'
+        content: 'Your Location'
       });
 
 	map.setCenter(pos);
