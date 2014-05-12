@@ -20,7 +20,7 @@ var map;
   // Set CSS for the control interior
   var controlText = document.createElement('div');
   controlText.style.fontFamily = 'Arial,sans-serif';
-  controlText.style.fontSize = '12px';
+  controlText.style.fontSize = '50px';
   controlText.style.paddingLeft = '4px';
   controlText.style.paddingRight = '4px';
   controlText.innerHTML = '<b>Camera</b>';
@@ -55,7 +55,7 @@ function PhotoLibraryControl(controlDiv, map) {
   // Set CSS for the control interior
   var controlText = document.createElement('div');
   controlText.style.fontFamily = 'Arial,sans-serif';
-  controlText.style.fontSize = '12px';
+  controlText.style.fontSize = '50px';
   controlText.style.paddingLeft = '4px';
   controlText.style.paddingRight = '4px';
   controlText.innerHTML = '<b>Library</b>';
