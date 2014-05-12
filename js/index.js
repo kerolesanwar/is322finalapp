@@ -156,11 +156,21 @@ function onDeviceReady() {
   	  //alert("Latitude:" + lat + latRef + " Longitude: " + long + longRef);
   	  var fLat = (lat[0] + lat[1]/60 + lat[2]/3600) * (latRef == "N" ? 1 : -1);
   	  var fLong = (long[0] + long[1]/60 + long[2]/3600) * (longRef == "W" ? -1 : 1);
-  				
-  	  marker = new GMarker (new GLatLng(fLat, fLong));
-  	  marker.setMap(map);
+  	
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);				
     }
     
+
+	function onSuccess(position) { 
+		var marker = new google.maps.Marker({ 
+			position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+			map: map
+		});
+	}
+
+	function onError(error) {
+		alert('code:  '+error.code+'\n' +'message:  ' +error.message+ '\n');
+	}
      // Called when a photo is successfully retrieved
     //
     function onPhotoURISuccess(imageURI) {
